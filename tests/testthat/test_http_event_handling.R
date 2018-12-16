@@ -149,7 +149,7 @@ test_that("server error", {
       get_robotstxt(
         "httpbin.org",
         rt_robotstxt_http_getter = function(...){http_server_error},
-        on_server_error = list(signal = "warning")
+        rt_event_handler         = list(on_server_error = list(signal = "warning"))
       )
   })
 
@@ -157,11 +157,11 @@ test_that("server error", {
     http_server_error <- readRDS(system.file("http_requests/http_server_error.rds", package = "robotstxt"))
     res <-
       paths_allowed(
-        paths = c("", "/", "here/I/stand/chopping/lops"),
-        domain = "httpbin.org",
-        rt_robotstxt_http_getter = function(...){http_server_error},
-        on_server_error = list(signal = "nothing"),
-        warn            = FALSE
+        paths                    = c("", "/", "here/I/stand/chopping/lops"),
+        domain                   = "httpbin.org",
+        rt_robotstxt_http_getter = function(...){readRDS(system.file("http_requests/http_server_error.rds", package = "robotstxt"))},
+        rt_event_handler         = list(on_server_error = list(signal = "nothing")),
+        warn                     = FALSE
       )
     all(!res)
   })

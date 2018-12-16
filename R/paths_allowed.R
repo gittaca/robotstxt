@@ -32,7 +32,7 @@ paths_allowed <-
     robotstxt_list            = NULL,
     rt_request_handler        = robotstxt::rt_request_handler,
     rt_robotstxt_http_getter  = robotstxt::get_robotstxt_http_get,
-    event_handler             = robotstxt::default_event_handler
+    rt_event_handler          = robotstxt::default_event_handler
   ){
 
     # process inputs
@@ -57,7 +57,7 @@ paths_allowed <-
           use_futures               = use_futures,
           rt_request_handler        = rt_request_handler,
           rt_robotstxt_http_getter  = rt_robotstxt_http_getter,
-          rt_event_handler          = robotstxt::default_event_handler
+          rt_event_handler          = rt_event_handler
         )
       names(robotstxt_list) <- domain
     }

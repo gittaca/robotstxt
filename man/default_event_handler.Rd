@@ -11,4 +11,26 @@ default_event_handler
 \description{
 default HTTP request event handler
 }
+\section{Fields}{
+
+\describe{
+\item{\code{on_server_error}}{request state handler for any 5xx status}
+
+\item{\code{on_client_error}}{request state handler for any 4xx HTTP status that is
+not 404}
+
+\item{\code{on_not_found}}{request state handler for HTTP status 404}
+
+\item{\code{on_redirect}}{request state handler for any 3xx HTTP status}
+
+\item{\code{on_domain_change}}{request state handler for any 3xx HTTP status where
+domain did change as well}
+
+\item{\code{on_file_type_mismatch}}{request state handler for content type other
+than 'text/plain'}
+
+\item{\code{on_suspect_content}}{request state handler for content that seems to be
+something else than a robots.txt file (usually a JSON, XML or HTML)}
+}}
+
 \keyword{datasets}

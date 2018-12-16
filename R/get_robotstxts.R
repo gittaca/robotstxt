@@ -28,8 +28,6 @@ get_robotstxts <-
     rt_robotstxt_http_getter  = robotstxt::get_robotstxt_http_get,
     rt_event_handler          = robotstxt::default_event_handler
   ){
-
-
     # combine parameter
     if ( length(user_agent) == 0 ) {
 
@@ -86,13 +84,7 @@ get_robotstxts <-
           ssl_verifypeer            = x$ssl_verifypeer,
           rt_request_handler        = rt_request_handler,
           rt_robotstxt_http_getter  = rt_robotstxt_http_getter,
-          on_server_error           = on_server_error,
-          on_client_error           = on_client_error,
-          on_not_found              = on_not_found,
-          on_redirect               = on_redirect,
-          on_domain_change          = on_domain_change,
-          on_file_type_mismatch     = on_file_type_mismatch,
-          on_suspect_content        = on_suspect_content
+          rt_event_handler          = rt_event_handler
         )
 
       }

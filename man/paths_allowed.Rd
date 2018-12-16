@@ -11,7 +11,7 @@ paths_allowed(paths = "/", domain = "auto", bot = "*",
   robotstxt_list = NULL,
   rt_request_handler = robotstxt::rt_request_handler,
   rt_robotstxt_http_getter = robotstxt::get_robotstxt_http_get,
-  event_handler = robotstxt::default_event_handler)
+  rt_event_handler = robotstxt::default_event_handler)
 }
 \arguments{
 \item{paths}{paths for which to check bot's permission, defaults to "/". Please, note that path to a folder should end with a trailing slash ("/").}

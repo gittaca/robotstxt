@@ -10,23 +10,6 @@
 #' @param request result of an HTTP request (e.g. httr::GET())
 #'
 #'
-#' @param on_server_error request state handler for any 5xx status
-#'
-#' @param on_client_error request state handler for any 4xx HTTP status that is
-#'   not 404
-#'
-#' @param on_not_found request state handler for HTTP status 404
-#'
-#' @param on_redirect request state handler for any 3xx HTTP status
-#'
-#' @param on_domain_change request state handler for any 3xx HTTP status where
-#'   domain did change as well
-#'
-#' @param on_file_type_mismatch request state handler for content type other
-#'   than 'text/plain'
-#'
-#' @param on_suspect_content request state handler for content that seems to be
-#'   something else than a robots.txt file (usually a JSON, XML or HTML)
 #'
 #'
 #' @param warn suppress warnings
@@ -47,7 +30,6 @@ rt_request_handler <-
     warn             = TRUE,
     encoding         = "UTF-8"
   ){
-
     # apply options to defsaults
     rt_event_handler      <- list_merge(robotstxt::default_event_handler, rt_event_handler)
 

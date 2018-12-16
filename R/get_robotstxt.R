@@ -71,11 +71,7 @@ get_robotstxt <-
     res  <-
       rt_request_handler(
         request          = request,
-        on_redirect      = on_redirect,
-        on_domain_change = on_domain_change,
-        on_not_found     = on_not_found,
-        on_client_error  = on_client_error,
-        on_server_error  = on_server_error,
+        rt_event_handler = rt_event_handler,
         warn             = warn,
         encoding         = encoding
       )
