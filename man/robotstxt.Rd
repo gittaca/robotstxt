@@ -23,6 +23,8 @@ file from domain}
 \item{force}{if TRUE instead of using possible cached results the function
 will re-download the robotstxt file HTTP response status 404. If this
 happens,}
+
+\item{rt_event_handler}{a list of lists determining the interpretation of robotstxts in case of specific evetns and triggers, see \link{default_event_handler}}
 }
 \value{
 Object (list) of class robotstxt with parsed data from a

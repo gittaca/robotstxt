@@ -16,6 +16,8 @@
 #' @param encoding The text encoding to assume if no encoding is provided in the
 #'   headers of the response
 #'
+#' @param rt_event_handler a list of lists determining the interpretation of robotstxts in case of specific evetns and triggers, see \link{default_event_handler}
+#'
 #' @return a list with three items following the following schema: \cr \code{
 #'   list( rtxt = "", problems = list( "redirect" = list( status_code = 301 ),
 #'   "domain" = list(from_url = "...", to_url = "...") ) ) }

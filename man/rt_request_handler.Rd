@@ -11,6 +11,8 @@ rt_request_handler(request,
 \arguments{
 \item{request}{result of an HTTP request (e.g. httr::GET())}
 
+\item{rt_event_handler}{a list of lists determining the interpretation of robotstxts in case of specific evetns and triggers, see \link{default_event_handler}}
+
 \item{warn}{suppress warnings}
 
 \item{encoding}{The text encoding to assume if no encoding is provided in the

@@ -1,5 +1,19 @@
 #' default HTTP request event handler
 #'
+#' List of list each containing 4 elements, e.g.: \code{on_server_error       =
+#' list(
+#' over_write_file_with = ...,
+#' signal               = ...,
+#' cache                = ...,
+#' priority             = ...
+#' )}. The first item (\code{over_write_file_with }) is the content which will
+#' replace whatever content retrieved. \code{signal} is a string determining
+#' how the event will be signaled, by error, warning, message, or no at all.
+#' \code{cache} is either \code{TRUE} or \code{FALSE} and will determine if the
+#' content retrieved will be cached or not. \code{priority} will determine which
+#' event handlers decisions will take precedence - with higher number indicating
+#' higher priority.
+#'
 #' @docType data
 #' @rdname default_event_handler
 #'

@@ -51,6 +51,8 @@ vectors with one vector per path to check}
 the event handlers specified}
 
 \item{rt_robotstxt_http_getter}{function that executes HTTP request}
+
+\item{rt_event_handler}{a list of lists determining the interpretation of robotstxts in case of specific evetns and triggers, see \link{default_event_handler}}
 }
 \description{
 check if a bot has permissions to access page(s)
