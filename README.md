@@ -3,10 +3,6 @@
 
 [![ropensci\_footer](https://raw.githubusercontent.com/ropensci/robotstxt/master/logo/github_footer.png)](https://ropensci.org)
 
-<style>img[alt=logo] { width: 150px; display: block; margin-left: auto; margin-right: auto;}</style>
-
-![logo](https://raw.githubusercontent.com/ropensci/robotstxt/master/logo/robotstxt.jpeg)
-
 **Status**
 
 *lines of R code:* 806, *lines of test code:* 1428
