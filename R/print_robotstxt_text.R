@@ -18,8 +18,15 @@ print.robotstxt_text <- function(x, ...){
   problems <- attr(x, "problems")
   if ( length(problems) > 0){
     cat("[problems]\n--------------------------------------\n\n")
-    cat(utils::capture.output(print(problems)), sep="\n")
+    names_problems <- names(problems)
+    for( i in seq_len(length(problems)) ){
+      cat("-", names_problems[i], problems[[i]]$info_line, "\n")
+    }
   }
+
+  # print problems
+  overwrite <- attr(x, "overwrite")
+  cat("- overwrite =", overwrite)
 
   # return
   invisible(x)
