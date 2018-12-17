@@ -43,6 +43,7 @@ get_robotstxt <-
     # get data from cache or do download
     if( force ){
 
+      # make http request
       request <-
         rt_robotstxt_http_getter(
           domain         = domain,
@@ -50,37 +51,50 @@ get_robotstxt <-
           ssl_verifypeer = ssl_verifypeer[1]
         )
 
-    }else if ( !is.null(rt_cache[[domain]]) ) {
+      # handle request
+      res  <-
+        rt_request_handler(
+          request          = request,
+          rt_event_handler = rt_event_handler,
+          warn             = warn,
+          encoding         = encoding
+        )
 
-      request <-
-        rt_cache[[domain]]
+    } else if ( !is.null(rt_cache[[domain]]) ) {
 
-    }else if ( is.null(rt_cache[[domain]]) ){
+      res <- rt_cache[[domain]]
 
+    } else if ( is.null(rt_cache[[domain]]) ){
+
+      # make http request
       request <-
         rt_robotstxt_http_getter(
           domain         = domain,
           user_agent     = user_agent,
           ssl_verifypeer = ssl_verifypeer[1]
+        )
+
+      # handle request
+      res  <-
+        rt_request_handler(
+          request          = request,
+          rt_event_handler = rt_event_handler,
+          warn             = warn,
+          encoding         = encoding
         )
 
     }
 
 
-    # handle request
-    res  <-
-      rt_request_handler(
-        request          = request,
-        rt_event_handler = rt_event_handler,
-        warn             = warn,
-        encoding         = encoding
-      )
-
-    rtxt <- res$rtxt
+    # handle cache
+    if ( res$cache == TRUE ){
+      rt_cache[[domain]] <- res
+    }
 
     # return
+    rtxt             <- res$rtxt
     attributes(rtxt) <- list(problems = res$problems, cached = res$cache)
-    class(rtxt)                  <- c("robotstxt_text", "character")
+    class(rtxt)      <- c("robotstxt_text", "character")
     return(rtxt)
   }
 

@@ -13,6 +13,10 @@
 #'
 request_handler_handler <-
   function(request, handler, res, info = TRUE, warn = TRUE){
+
+    # store old priority
+    res_priority_old <- res$priority
+
     # use handler function or simply go through options bit by bit
     if ( is.function(handler) ){
 
@@ -41,26 +45,27 @@ request_handler_handler <-
 
 
       # rtxt handling
-      if ( is.null(handler$over_write_file_with) ) {
-        # do nothing
+      if ( is.null(handler$over_write_file_with) ||  handler$over_write_file_with == FALSE ) {
+        res$overwrite <- FALSE
       } else {
-        if ( res$priority < handler$priority){
-          res$priority <- handler$priority
-          res$rtxt     <- handler$over_write_file_with
+        if ( res_priority_old < handler$priority){
+          res$priority  <- handler$priority
+          res$rtxt      <- handler$over_write_file_with
+          res$overwrite <- TRUE
         }
-
       }
+
 
       # cache handling
       if ( handler$cache %in% TRUE ) {
-        if ( res$priority < handler$priority){
+        if ( res_priority_old < handler$priority){
           res$priority <- handler$priority
-          res$cache <- TRUE
+          res$cache    <- TRUE
         }
       } else if ( handler$cache %in% FALSE ) {
-        if ( res$priority < handler$priority){
+        if ( res_priority_old < handler$priority){
           res$priority <- handler$priority
-          res$cache <- FALSE
+          res$cache    <- FALSE
         }
       }
     }
