@@ -32,16 +32,32 @@ rt_request_handler <-
     warn             = TRUE,
     encoding         = "UTF-8"
   ){
-    # apply options to defsaults
+    # apply options to defaults
     rt_event_handler      <- list_merge(robotstxt::default_event_handler, rt_event_handler)
 
-    on_server_error       <- rt_event_handler$on_server_error
-    on_client_error       <- rt_event_handler$on_client_error
-    on_not_found          <- rt_event_handler$on_not_found
-    on_redirect           <- rt_event_handler$on_redirect
-    on_domain_change      <- rt_event_handler$on_domain_change
-    on_file_type_mismatch <- rt_event_handler$on_file_type_mismatch
-    on_suspect_content    <- rt_event_handler$on_suspect_content
+
+    if( "all" %in% names(rt_event_handler) ){
+
+      on_server_error       <- list_merge(rt_event_handler$on_server_error, rt_event_handler$all)
+      on_client_error       <- list_merge(rt_event_handler$on_client_error, rt_event_handler$all)
+      on_not_found          <- list_merge(rt_event_handler$on_not_found, rt_event_handler$all)
+      on_redirect           <- list_merge(rt_event_handler$on_redirect, rt_event_handler$all)
+      on_domain_change      <- list_merge(rt_event_handler$on_domain_change, rt_event_handler$all)
+      on_file_type_mismatch <- list_merge(rt_event_handler$on_file_type_mismatch, rt_event_handler$all)
+      on_suspect_content    <- list_merge(rt_event_handler$on_suspect_content, rt_event_handler$all)
+
+    } else {
+
+      on_server_error       <- rt_event_handler$on_server_error
+      on_client_error       <- rt_event_handler$on_client_error
+      on_not_found          <- rt_event_handler$on_not_found
+      on_redirect           <- rt_event_handler$on_redirect
+      on_domain_change      <- rt_event_handler$on_domain_change
+      on_file_type_mismatch <- rt_event_handler$on_file_type_mismatch
+      on_suspect_content    <- rt_event_handler$on_suspect_content
+
+    }
+
 
 
     # storage for output
@@ -50,7 +66,8 @@ rt_request_handler <-
         rtxt      = NULL,
         problems  = list(),
         cache     = NULL,
-        priority  = 0
+        priority  = 0,
+        rtxt_orig = character(0)
       )
 
 
@@ -74,6 +91,8 @@ rt_request_handler <-
         )
     }
 
+    # store original rtxt
+    res$rtxt_orig <- rtxt_not_handled
 
 
 
@@ -209,11 +228,6 @@ rt_request_handler <-
           info    = list(parsable = parsable, content_suspect = content_suspect),
           warn    = warn
         )
-    }
-
-    ## default robotstxt if not handled otherwise
-    if( is.null(res$rtxt) ){
-      res$rtxt <- rtxt_not_handled
     }
 
 

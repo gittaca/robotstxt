@@ -92,8 +92,13 @@ get_robotstxt <-
     }
 
     # return
-    rtxt             <- res$rtxt
-    attributes(rtxt) <- list(problems = res$problems, cached = res$cache)
+    if ( res$overwrite == TRUE ){
+      rtxt <- res$rtxt
+    } else {
+      rtxt <- res$rtxt_orig
+    }
+
+    attributes(rtxt) <- list(problems = res$problems, cached = res$cache, overwrite = res$overwrite)
     class(rtxt)      <- c("robotstxt_text", "character")
     return(rtxt)
   }
