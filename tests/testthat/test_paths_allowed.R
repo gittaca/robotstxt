@@ -37,7 +37,8 @@ context("paths_allowed()")
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-        expect_true(
+        expect_true({
+          rt_clear_cache()
           paths_allowed(
             robotstxt_list = list(rtxt_she),
             paths          = "/temp/",
@@ -45,7 +46,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
             check_method   = options_grid$check_method[i],
             use_futures    = options_grid$use_futures[i]
           )
-        )
+        })
     }
   )
 }
@@ -53,7 +54,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_she),
           paths          = "/temp/",
@@ -61,7 +63,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -73,7 +75,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_pm),
               paths          = "images",
@@ -81,7 +84,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -89,7 +92,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_pm),
               paths          = "/images",
@@ -97,7 +101,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -106,7 +110,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_pm),
               paths          = "/images/",
@@ -114,7 +119,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -122,7 +127,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_pm),
               paths          = "images/",
@@ -130,7 +136,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -138,7 +144,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_pm),
               paths          = "/images/dings",
@@ -146,7 +153,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -160,7 +167,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "images",
@@ -168,7 +176,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -177,7 +185,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "images",
@@ -185,7 +194,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -193,7 +202,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "/images",
@@ -201,7 +211,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -209,7 +219,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "/images/",
@@ -217,7 +228,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -225,7 +236,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "images/",
@@ -233,7 +245,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -241,7 +253,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "images/dings",
@@ -249,7 +262,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -257,7 +270,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "*",
@@ -265,7 +279,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -274,7 +288,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "images",
@@ -282,7 +297,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -290,7 +305,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "/images",
@@ -298,7 +314,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -306,7 +322,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "/images/",
@@ -314,7 +331,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -322,7 +339,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_false(
+          expect_false({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "*",
@@ -330,7 +348,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -339,7 +357,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_true(
+          expect_true({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "images",
@@ -347,7 +366,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -355,7 +374,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_true(
+          expect_true({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "/images",
@@ -363,7 +383,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -372,7 +392,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_true(
+          expect_true({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               path           ="/images/",
@@ -380,7 +401,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -390,7 +411,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_true(
+          expect_true({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "images",
@@ -398,7 +420,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -406,7 +428,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_true(
+          expect_true({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "images/dings",
@@ -414,7 +437,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -422,7 +445,8 @@ test_that(
     for ( i in seq_len(nrow(options_grid)) ) {
       test_that(
         "simple check", {
-          expect_true(
+          expect_true({
+            rt_clear_cache()
             paths_allowed(
               robotstxt_list = list(rtxt_asb),
               paths          = "*",
@@ -430,7 +454,7 @@ test_that(
               check_method   = options_grid$check_method[i],
               use_futures    = options_grid$use_futures[i]
             )
-          )
+          })
         }
       )
     }
@@ -444,7 +468,8 @@ test_that(
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafa),
           paths          = "",
@@ -452,7 +477,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -460,7 +485,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafa),
           paths          = "/images",
@@ -468,7 +494,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -476,7 +502,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_asb),
           paths          = "index.html",
@@ -484,7 +511,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -492,7 +519,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafa),
           paths          = "*",
@@ -500,7 +528,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -509,7 +537,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafa),
           paths          = "",
@@ -517,7 +546,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -525,14 +554,15 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_asb),
           paths          = "/images",
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -540,7 +570,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafa),
           paths          = "index.html",
@@ -548,7 +579,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -556,14 +587,15 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafa),
           paths          = "*",
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -577,7 +609,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "*",
@@ -585,7 +618,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -593,7 +626,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "/images",
@@ -601,7 +635,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -609,7 +643,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "index.html",
@@ -617,7 +652,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -625,7 +660,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "*",
@@ -633,7 +669,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -642,14 +678,15 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "",
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -657,29 +694,31 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "/images",
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
-#     expect_true(paths_allowed(permissions_dafbb, path="index.html"))
+#     expect_true({paths_allowed(permissions_dafbb, path="index.html"))
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "index.html",
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -687,14 +726,15 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "*",
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -708,7 +748,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "",
@@ -716,7 +757,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -724,7 +765,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "/images",
@@ -732,7 +774,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -740,7 +782,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "index.html",
@@ -748,7 +791,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -756,7 +799,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "*",
@@ -764,7 +808,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -773,7 +817,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "",
@@ -781,7 +826,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -789,7 +834,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "/images",
@@ -797,7 +843,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -805,7 +851,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "index.html",
@@ -813,7 +859,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -821,7 +867,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_false(
+      expect_false({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_dafbb),
           paths          = "*",
@@ -829,7 +876,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -843,14 +890,15 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_empty),
           paths          = "",
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -858,14 +906,15 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_empty),
           paths          = "/",
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -873,14 +922,15 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_empty),
           paths          = "/images",
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -888,7 +938,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_empty),
           paths          = "index.html",
@@ -896,7 +947,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -905,7 +956,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_empty),
           paths          = "",
@@ -913,15 +965,16 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
-#     expect_true(paths_allowed(permissions_empty, path="/", bot = "BadBot"))
+#     expect_true({paths_allowed(permissions_empty, path="/", bot = "BadBot"))
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_empty),
           paths          = "/",
@@ -929,7 +982,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -937,7 +990,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_empty),
           paths          = "/images",
@@ -945,7 +999,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+    })
     }
   )
 }
@@ -953,7 +1007,8 @@ for ( i in seq_len(nrow(options_grid)) ) {
 for ( i in seq_len(nrow(options_grid)) ) {
   test_that(
     "simple check", {
-      expect_true(
+      expect_true({
+        rt_clear_cache()
         paths_allowed(
           robotstxt_list = list(rtxt_empty),
           paths          = "index.html",
@@ -961,7 +1016,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
           check_method   = options_grid$check_method[i],
           use_futures    = options_grid$use_futures[i]
         )
-      )
+      })
     }
   )
 }
@@ -980,6 +1035,7 @@ for ( i in seq_len(nrow(options_grid)) ) {
 test_that("paths_allowed() works also with 'downloaded' robots.txt files",{
 
   expect_message({
+    rt_clear_cache()
     domain_change <- readRDS(system.file("http_requests/http_domain_change.rds", package = "robotstxt"))
     paths_allowed(
       paths                    = "https://github.io/index.html",
@@ -989,6 +1045,7 @@ test_that("paths_allowed() works also with 'downloaded' robots.txt files",{
   })
 
   expect_warning({
+    rt_clear_cache()
     domain_change <- readRDS(system.file("http_requests/http_domain_change.rds", package = "robotstxt"))
     paths_allowed(
       paths                    = "https://github.io/index.html",
@@ -997,6 +1054,7 @@ test_that("paths_allowed() works also with 'downloaded' robots.txt files",{
   })
 
   expect_true({
+    rt_clear_cache()
     domain_change <- readRDS(system.file("http_requests/http_domain_change.rds", package = "robotstxt"))
     paths_allowed(
       paths                    = "https://github.io/index.html",
@@ -1006,6 +1064,7 @@ test_that("paths_allowed() works also with 'downloaded' robots.txt files",{
   })
 
   expect_true({
+    rt_clear_cache()
     domain_change <- readRDS(system.file("http_requests/http_domain_change.rds", package = "robotstxt"))
     res <-
       paths_allowed(
@@ -1018,6 +1077,7 @@ test_that("paths_allowed() works also with 'downloaded' robots.txt files",{
   })
 
   expect_true({
+    rt_clear_cache()
     domain_change <- readRDS(system.file("http_requests/http_domain_change.rds", package = "robotstxt"))
     res <-
       paths_allowed(
@@ -1030,6 +1090,7 @@ test_that("paths_allowed() works also with 'downloaded' robots.txt files",{
 
 
   expect_true({
+    rt_clear_cache()
     http_ok <- readRDS(system.file("http_requests/http_ok_1.rds", package = "robotstxt"))
     res <-
       paths_allowed(

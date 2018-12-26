@@ -24,9 +24,13 @@ print.robotstxt_text <- function(x, ...){
     }
   }
 
-  # print problems
+  # print attributes
+  cat("\n\n[attributes]\n--------------------------------------\n\n")
   overwrite <- attr(x, "overwrite")
-  cat("- overwrite =", overwrite)
+  cat("* overwrite =", overwrite, "\n")
+
+  overwrite <- attr(x, "cached")
+  cat("* cached    =", overwrite, "\n")
 
   # return
   invisible(x)

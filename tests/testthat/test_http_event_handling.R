@@ -2,6 +2,7 @@ context("HTTP evenet handling")
 
 test_that("www redirects are handled silently", {
   expect_silent({
+    rt_clear_cache()
     www_redirect <- readRDS(system.file("http_requests/http_redirect_www.rds", package = "robotstxt"))
     get_robotstxt(
       "http://google.com",
@@ -12,6 +13,7 @@ test_that("www redirects are handled silently", {
 
 test_that("non www redirects are handled non silently", {
   expect_warning({
+    rt_clear_cache()
     domain_change <- readRDS(system.file("http_requests/http_domain_change.rds", package = "robotstxt"))
     get_robotstxt(
       "http://google.com",
@@ -22,6 +24,7 @@ test_that("non www redirects are handled non silently", {
 
 test_that("warn = FALSE does silences warnings", {
   expect_silent({
+    rt_clear_cache()
     domain_change <- readRDS(system.file("http_requests/http_domain_change.rds", package = "robotstxt"))
     get_robotstxt(
       "github.io",
@@ -35,6 +38,7 @@ test_that("warn = FALSE does silences warnings", {
 test_that("suspect content", {
   expect_true({
     suppressWarnings({
+      rt_clear_cache()
       suspect_content <- readRDS(system.file("http_requests/http_html_content.rds", package = "robotstxt"))
       rtxt <-
         get_robotstxt(
@@ -54,6 +58,7 @@ test_that("suspect content", {
 
 test_that("all ok", {
   expect_silent({
+    rt_clear_cache()
     http_ok <- readRDS(system.file("http_requests/http_ok_1.rds", package = "robotstxt"))
     get_robotstxt(
       "google.com",
@@ -62,6 +67,7 @@ test_that("all ok", {
   })
 
   expect_silent({
+    rt_clear_cache()
     http_ok <- readRDS(system.file("http_requests/http_ok_2.rds", package = "robotstxt"))
     get_robotstxt(
       "google.com",
@@ -70,6 +76,7 @@ test_that("all ok", {
   })
 
   expect_silent({
+    rt_clear_cache()
     http_ok <- readRDS(system.file("http_requests/http_ok_3.rds", package = "robotstxt"))
     get_robotstxt(
       "google.com",
@@ -78,20 +85,26 @@ test_that("all ok", {
   })
 
   expect_silent({
+    rt_clear_cache()
     if ( Sys.getenv("rpkg_use_internet_for_testing") == "TRUE"  ){
       get_robotstxt(
         "google.com"
       )
+    }else{
+      skip("Shall not use internet.")
     }
   })
 
 
   expect_silent({
+    rt_clear_cache()
     if ( Sys.getenv("rpkg_use_internet_for_testing") == "TRUE"  ){
       get_robotstxt(
         "google.com",
         force = TRUE
       )
+    }else{
+      skip("Shall not use internet.")
     }
   })
 })
@@ -101,6 +114,7 @@ test_that("all ok", {
 
 test_that("client error", {
   expect_warning({
+    rt_clear_cache()
     http_client_error <- readRDS(system.file("http_requests/http_client_error.rds", package = "robotstxt"))
     get_robotstxt(
       "httpbin.org",
@@ -109,6 +123,7 @@ test_that("client error", {
   })
 
   expect_true({
+    rt_clear_cache()
     http_client_error <- readRDS(system.file("http_requests/http_client_error.rds", package = "robotstxt"))
     res <-
       get_robotstxt(
@@ -121,6 +136,7 @@ test_that("client error", {
   })
 
   expect_true({
+    rt_clear_cache()
     http_client_error <- readRDS(system.file("http_requests/http_client_error.rds", package = "robotstxt"))
     res <-
     paths_allowed(
@@ -136,6 +152,7 @@ test_that("client error", {
 
 test_that("server error", {
   expect_error({
+    rt_clear_cache()
     http_server_error <- readRDS(system.file("http_requests/http_server_error.rds", package = "robotstxt"))
     get_robotstxt(
       "httpbin.org",
@@ -144,6 +161,7 @@ test_that("server error", {
   })
 
   expect_warning({
+    rt_clear_cache()
     http_server_error <- readRDS(system.file("http_requests/http_server_error.rds", package = "robotstxt"))
     res <-
       get_robotstxt(
@@ -154,6 +172,7 @@ test_that("server error", {
   })
 
   expect_true({
+    rt_clear_cache()
     http_server_error <- readRDS(system.file("http_requests/http_server_error.rds", package = "robotstxt"))
     res <-
       paths_allowed(

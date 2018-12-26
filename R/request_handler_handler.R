@@ -57,6 +57,10 @@ request_handler_handler <-
 
 
       # cache handling
+      if ( is.null(res$cache) ){
+        res$cache <- TRUE
+      }
+
       if ( handler$cache %in% TRUE ) {
         if ( res_priority_old < handler$priority){
           res$priority <- handler$priority

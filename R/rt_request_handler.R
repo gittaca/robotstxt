@@ -65,7 +65,8 @@ rt_request_handler <-
       list(
         rtxt      = NULL,
         problems  = list(),
-        cache     = NULL,
+        cache     = TRUE,
+        overwrite = FALSE,
         priority  = 0,
         rtxt_orig = character(0)
       )
